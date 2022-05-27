@@ -6,6 +6,7 @@ CREATE DATABASE "lab1"
     CONNECTION LIMIT = -1;
 
 DROP TABLE IF EXISTS "Cliente";
+DROP TABLE IF EXISTS "Empresa";
 DROP TABLE IF EXISTS "Comuna";
 
 CREATE TABLE public."Comuna"(
@@ -23,9 +24,9 @@ CREATE TABLE public."Cliente"(
     nombre_cl name NOT NULL,
     rut_cl integer NOT NULL,
     consumo_men integer NOT NULL,
-    id_comu integer NOT NULL,
+    id_com integer NOT NULL,
     CONSTRAINT cliente_pkey PRIMARY KEY (n_medidor),
-    CONSTRAINT fk_comuna FOREIGN KEY (id_comu)
+    CONSTRAINT fk_comuna FOREIGN KEY (id_com)
         REFERENCES public."Comuna" (id_com) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
@@ -34,12 +35,19 @@ CREATE TABLE public."Cliente"(
 ALTER TABLE IF EXISTS public."Cliente"
     OWNER to postgres;
 
-/* CREATE TABLE public."Cliente"( */
+CREATE TABLE public."Empresa"(
+    id_emp integer NOT NULL,
+    nombre_emp name NOT NULL,
+    id_com integer NOT NULL,
+    CONSTRAINT empresa_pkey PRIMARY KEY (id_emp),
+    CONSTRAINT fk_comuna FOREIGN KEY (id_com)
+        REFERENCES public."Comuna" (id_com) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
 
-/* ); */
-
-/* ALTER TABLE IF EXISTS public."Cliente" */
-/*     OWNER to postgres; */
+ALTER TABLE IF EXISTS public."Empresa"
+    OWNER to postgres;
 
 /* CREATE TABLE public."Cliente"( */
 
