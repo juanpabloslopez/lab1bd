@@ -1,3 +1,5 @@
+/* [Parte dos */
+
 DROP DATABASE IF EXISTS lab1;
 CREATE DATABASE lab1
     WITH 
@@ -79,6 +81,9 @@ CREATE TABLE public.Historial(
 ALTER TABLE IF EXISTS public.Historial
     OWNER to postgres;
 
+/* Parte dos] */
+
+/* [Parte tres */
 
 INSERT INTO public.Comuna(
     nombre_com, id_com)
@@ -143,3 +148,5 @@ INSERT INTO public.Historial(
 INSERT INTO public.Historial(
     fecha_consumo, consumo, id_fuente)
     VALUES ('16/6/2023', 5000, 212);
+
+/* Parte tres] */
