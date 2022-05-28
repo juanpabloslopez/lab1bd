@@ -80,9 +80,66 @@ ALTER TABLE IF EXISTS public.Historial
     OWNER to postgres;
 
 
+INSERT INTO public.Comuna(
+    nombre_com, id_com)
+    VALUES ('Providencia', 7500000);
 
-/* REFERENCIA NOMAS */
-/* INSERT INTO public."Cliente"( */
-/* 	codigo, rut, nombre, tipo, consumo_mensual, codigo_comuna, codigo_empresa) */
-/* 	VALUES (1, 1, 'Leo', 'particular', 60, 1, 1); */
+INSERT INTO public.Comuna(
+    nombre_com, id_com)
+    VALUES ('QuintaNormal', 8500000);
 
+INSERT INTO public.Comuna(
+    nombre_com, id_com)
+    VALUES ('Ñuñoa', 7750000);
+
+
+INSERT INTO public.Cliente(
+    tipo_cl, n_medidor, nombre_cl, rut_cl, consumo_men, id_com)
+    VALUES ('Particular', 1, 'Pablito', 201234567, 1000, 7500000);
+
+INSERT INTO public.Cliente(
+    tipo_cl, n_medidor, nombre_cl, rut_cl, consumo_men, id_com)
+    VALUES ('Particular', 2, 'Leopoldo', 207654321, 2500, 7750000);
+
+INSERT INTO public.Cliente(
+    tipo_cl, n_medidor, nombre_cl, rut_cl, consumo_men, id_com)
+    VALUES ('Particular', 3, 'Cristobalin', 203211234, 1800, 8500000);
+
+
+INSERT INTO public.Empresa(
+    id_emp, nombre_emp, id_com)
+    VALUES (777, 'LosSanguches', 7500000);
+
+INSERT INTO public.Empresa(
+    id_emp, nombre_emp, id_com)
+    VALUES (666, 'Biblioteca', 7750000);
+
+INSERT INTO public.Empresa(
+    id_emp, nombre_emp, id_com)
+    VALUES (555, 'Liquidos', 8500000);
+
+
+INSERT INTO public.Fuente_de_Agua(
+    id_fuente, nombre_fuente, id_emp)
+    VALUES (212, 'FuentesLiq', 555);
+
+INSERT INTO public.Fuente_de_Agua(
+    id_fuente, nombre_fuente, id_emp)
+    VALUES (323, 'FuentesSan', 777);
+
+INSERT INTO public.Fuente_de_Agua(
+    id_fuente, nombre_fuente, id_emp)
+    VALUES (434, 'FuentesBib', 666);
+
+
+INSERT INTO public.Historial(
+    fecha_consumo, consumo, id_fuente)
+    VALUES ('23/12/2022', 1000, 323);
+
+INSERT INTO public.Historial(
+    fecha_consumo, consumo, id_fuente)
+    VALUES ('11/10/2021', 2000, 434);
+
+INSERT INTO public.Historial(
+    fecha_consumo, consumo, id_fuente)
+    VALUES ('16/6/2023', 5000, 212);
