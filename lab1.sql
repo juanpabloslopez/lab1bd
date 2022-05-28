@@ -1,12 +1,7 @@
 /* [Parte dos */
 
-DROP DATABASE IF EXISTS lab1;
-CREATE DATABASE lab1
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF-8'
-    CONNECTION LIMIT = -1;
-
+/* Eliminamos las tablas en caso de existir, esto esta basicamente */
+/* porque como constantemente editaba la base den datos */
 DROP TABLE IF EXISTS Cliente CASCADE;
 DROP TABLE IF EXISTS Historial CASCADE;
 DROP TABLE IF EXISTS Fuente_de_Agua CASCADE;
@@ -100,7 +95,7 @@ INSERT INTO public.Comuna(
 
 INSERT INTO public.Cliente(
     tipo_cl, n_medidor, nombre_cl, rut_cl, consumo_men, id_com)
-    VALUES ('Particular', 1, 'Pablito', 201234567, 1000, 7500000);
+    VALUES ('Particular', 1, 'Pablito', 201234567, 100, 7500000);
 
 INSERT INTO public.Cliente(
     tipo_cl, n_medidor, nombre_cl, rut_cl, consumo_men, id_com)
@@ -108,7 +103,7 @@ INSERT INTO public.Cliente(
 
 INSERT INTO public.Cliente(
     tipo_cl, n_medidor, nombre_cl, rut_cl, consumo_men, id_com)
-    VALUES ('Particular', 3, 'Cristobalin', 203211234, 1800, 8500000);
+    VALUES ('Restaurant', 3, 'Cristobalin', 203211234, 1800, 8500000);
 
 
 INSERT INTO public.Empresa(
